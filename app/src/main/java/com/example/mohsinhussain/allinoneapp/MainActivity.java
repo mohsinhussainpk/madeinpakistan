@@ -24,7 +24,36 @@ public class MainActivity extends AppCompatActivity
     public static final String CATEGORY = "category";
     TextView textviewShoppiing ;
     TextView textviewFood ;
-     int click = 0;
+    TextView textViewCarHiring;
+    TextView textViewClassified;
+    TextView textViewJobSite;
+    TextView textViewNews;
+    TextView textViewWallets;
+    TextView textViewTechNews;
+    TextView textViewBooking;
+    TextView textViewGrocery;
+    TextView textViewCarSite;
+    TextView textViewRealState;
+    TextView textViewPriceCompany;
+    TextView textViewEducation;
+
+    TextView textViewTravelling;
+    TextView textViewHomeServices;
+    TextView textViewMedicine;
+    TextView textViewFinanace;
+    TextView textViewFurniture;
+    TextView textViewPrinting;
+    TextView textViewFlower;
+    TextView textViewDeal;
+    TextView textViewKids;
+    TextView textViewWomen;
+    TextView textViewDelivery;
+    TextView textViewEbuzz;
+    TextView textViewMusic;
+    TextView textViewLegal;
+
+
+    int click = 0;
     public static String category = "";
     static DAL layer;
 
@@ -120,8 +149,38 @@ public class MainActivity extends AppCompatActivity
 
     public void moveToBrandsList(View view) {
 
-        TextView textviewShoppiing = (TextView) findViewById(R.id.textviewShopping);
-        TextView textviewFood = (TextView) findViewById(R.id.textviewFood);
+         textviewShoppiing = (TextView) findViewById(R.id.textviewShopping);
+         textviewFood = (TextView) findViewById(R.id.textviewFood);
+         textViewCarHiring = (TextView) findViewById(R.id.carhiring);
+        textViewClassified = (TextView) findViewById(R.id.classifiedsite);
+        textViewJobSite = (TextView) findViewById(R.id.josite);
+        textViewNews = (TextView) findViewById(R.id.news);
+        textViewWallets = (TextView) findViewById(R.id.mobileWallets);
+        textViewBooking = (TextView) findViewById(R.id.Booking);
+        textViewGrocery = (TextView) findViewById(R.id.grocery);
+        textViewCarSite = (TextView) findViewById(R.id.carsite);
+        textViewRealState = (TextView) findViewById(R.id.realstate);
+        textViewPriceCompany = (TextView) findViewById(R.id.pricecomapnysite);
+        textViewEducation = (TextView) findViewById(R.id.education);
+        textViewTechNews = (TextView) findViewById(R.id.technews);
+        textViewTravelling = (TextView) findViewById(R.id.travelsite);
+        textViewHomeServices = (TextView) findViewById(R.id.HomeServiceSite);
+        textViewMedicine = (TextView) findViewById(R.id.medicineSite);
+        textViewFinanace = (TextView) findViewById(R.id.financeSite);
+        textViewFurniture = (TextView) findViewById(R.id.furnitureSite);
+        textViewPrinting = (TextView) findViewById(R.id.printingSite);
+        textViewFlower = (TextView) findViewById(R.id.giftandflowersSite);
+        textViewDeal = (TextView) findViewById(R.id.dealSite);
+        textViewKids = (TextView) findViewById(R.id.babyandkidsSite);
+        textViewWomen = (TextView) findViewById(R.id.womenshoppingSite);
+        textViewDelivery = (TextView) findViewById(R.id.deliveryserviceSite);
+        textViewEbuzz = (TextView) findViewById(R.id.ebuzzsite);
+        textViewMusic = (TextView) findViewById(R.id.musicSite);
+        textViewLegal = (TextView) findViewById(R.id.legalsite);
+
+        // TextView textviewFood = (TextView) findViewById(R.id.textviewFood);
+
+
 
 
         switch (view.getId()) {
@@ -134,6 +193,86 @@ public class MainActivity extends AppCompatActivity
             case R.id.foodImage:
                 category = textviewFood.getText().toString();
                 break;
+            case R.id.carhiringImage:
+                category = textViewCarHiring.getText().toString();
+                break;
+
+            case R.id.classifiedSitesImage:
+                category = textViewClassified.getText().toString();
+                break;
+            case R.id.jobSiteImage:
+                category = textViewJobSite.getText().toString();
+                break;
+            case R.id.newsImage:
+                category = textViewNews.getText().toString();
+                break;
+            case R.id.mobileWalletsImage:
+                category = textViewWallets.getText().toString();
+                break;
+            case R.id.BookingImage:
+                category = textViewBooking.getText().toString();
+                break;
+            case R.id.GroceryImage:
+                category = textViewGrocery.getText().toString();
+                break;
+            case R.id.CarSiteImage:
+                category = textViewCarSite.getText().toString();
+                break;
+            case R.id.realStateImage:
+                category = textViewRealState.getText().toString();
+                break;
+            case R.id.priceComapnySiteImage:
+                category = textViewPriceCompany.getText().toString();
+                break;
+            case R.id.educationSiteImage:
+                category = textViewEducation.getText().toString();
+                break;
+            case R.id.technewsSiteImage:
+                category = textViewTechNews.getText().toString();
+                break;
+            case R.id.HomeServiceSiteImage:
+                category = textViewHomeServices.getText().toString();
+                break;
+
+            case R.id.medicineSiteImage:
+                category = textViewMedicine.getText().toString();
+                break;
+
+            case R.id.financeSiteImage:
+                category = textViewFinanace.getText().toString();
+                break;
+            case R.id.furnitureSiteImage:
+                category = textViewFurniture.getText().toString();
+                break;
+            case R.id.printingSiteImage:
+                category = textViewPrinting.getText().toString();
+                break;
+            case R.id.giftandflowersSiteImage:
+                category = textViewFlower.getText().toString();
+                break;
+            case R.id.dealSiteImage:
+                category = textViewDeal.getText().toString();
+                break;
+            case R.id.babyandkidsSiteImage:
+                category = textViewKids.getText().toString();
+                break;
+
+            case R.id.womenshoppingSiteImage:
+                category = textViewWomen.getText().toString();
+                break;
+            case R.id.deliveryserviceSiteImage:
+                category = textViewDelivery.getText().toString();
+                break;
+            case R.id.ebuzzsiteImage:
+                category = textViewEbuzz.getText().toString();
+                break;
+            case R.id.musicSiteImage:
+                category = textViewMusic.getText().toString();
+                break;
+            case R.id.legalsiteImage:
+                category = textViewLegal.getText().toString();
+                break;
+
 
 
         }

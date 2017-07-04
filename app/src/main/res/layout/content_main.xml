@@ -80,12 +80,13 @@
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/foodImage"
             android:src="@drawable/carbuy"
-
+            android:onClick="moveToBrandsList"
 
             />
 
         <TextView
 
+            android:id="@+id/carhiring"
             style="@style/TextStyle"
             android:layout_below="@+id/carhiringImage"
 
@@ -102,16 +103,16 @@
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/carhiringImage"
             android:src="@drawable/onlinejobsearchsymbol"
-
+            android:onClick="moveToBrandsList"
 
             />
 
         <TextView
-
+            android:id="@+id/classifiedsite"
             style="@style/TextStyle"
             android:layout_below="@+id/classifiedSitesImage"
             android:layout_toRightOf="@+id/carhiringImage"
-            android:paddingLeft="9dp"
+            android:paddingLeft="13dp"
             android:text="Classified Sites"
 
             />
@@ -131,9 +132,10 @@
             android:id="@+id/jobSiteImage"
             style="@style/ImageStyle"
             android:src="@drawable/onlinejobsearchsymbol"
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
+            android:id="@+id/josite"
             android:layout_below="@+id/jobSiteImage"
 
             android:text="Job Site"
@@ -148,11 +150,11 @@
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/jobSiteImage"
             android:src="@drawable/newspaper"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/news"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/jobSiteImage"
             android:paddingLeft="25dp"
@@ -166,7 +168,7 @@
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/newsImage"
             android:src="@drawable/wallet"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
@@ -178,8 +180,8 @@
             android:layout_toRightOf="@+id/newsImage"
 
 
-
-            android:text=" Wallets"
+android:id="@+id/mobileWallets"
+            android:text="Wallets"
 
             />
 
@@ -189,13 +191,13 @@
             android:layout_toRightOf="@+id/mobileWalletsImage"
             android:src="@drawable/deals"
 
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
-
+android:id="@+id/Booking"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/mobileWalletsImage"
-            android:paddingLeft="9dp"
+            android:paddingLeft="13dp"
             android:layout_below="@+id/BookingImage"
             android:text="Booking"
 
@@ -222,9 +224,10 @@ android:layout_height="wrap_content"
     android:id="@+id/GroceryImage"
     style="@style/ImageStyle"
     android:src="@drawable/groceriesbag"
-
+    android:onClick="moveToBrandsList"
     />
 <TextView
+    android:id="@+id/grocery"
     android:layout_below="@+id/GroceryImage"
 
     android:text="Grocery"
@@ -240,16 +243,16 @@ android:layout_height="wrap_content"
     style="@style/ImageStyle"
     android:layout_toRightOf="@+id/GroceryImage"
     android:src="@drawable/distancetotravelbetweentwopoints"
-
+    android:onClick="moveToBrandsList"
 
     />
 <TextView
-
+android:id="@+id/carsite"
     style="@style/TextStyle"
     android:layout_toRightOf="@+id/GroceryImage"
-    android:paddingLeft="25dp"
+    android:paddingLeft="10dp"
     android:layout_below="@+id/CarSiteImage"
-    android:text="Travel"
+    android:text="Car Site"
 
     />
 
@@ -258,11 +261,11 @@ android:layout_height="wrap_content"
     style="@style/ImageStyle"
     android:layout_toRightOf="@+id/CarSiteImage"
     android:src="@drawable/realestate"
-
+    android:onClick="moveToBrandsList"
 
     />
 <TextView
-
+android:id="@+id/realstate"
     style="@style/TextStyle"
     android:layout_below="@+id/realStateImage"
 
@@ -271,7 +274,7 @@ android:layout_height="wrap_content"
 
 
 
-    android:text=" Real State"
+    android:text="Real State"
 
     />
 
@@ -280,14 +283,14 @@ android:layout_height="wrap_content"
     style="@style/ImageStyle"
     android:layout_toRightOf="@+id/realStateImage"
     android:src="@drawable/deals"
-
+    android:onClick="moveToBrandsList"
 
     />
 <TextView
-
+android:id="@+id/pricecomapnysite"
     style="@style/TextStyle"
     android:layout_toRightOf="@+id/realStateImage"
-    android:paddingLeft="9dp"
+    android:paddingLeft="13dp"
     android:layout_below="@+id/priceComapnySiteImage"
     android:text="Price Company"
 
@@ -309,7 +312,7 @@ android:layout_height="wrap_content"
             android:id="@+id/educationSiteImage"
             style="@style/ImageStyle"
             android:src="@drawable/education"
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
             android:layout_below="@+id/educationSiteImage"
@@ -318,7 +321,7 @@ android:layout_height="wrap_content"
 
             style="@style/TextStyle"
             android:paddingLeft="10dp"
-
+android:id="@+id/education"
             />
 
         <ImageButton
@@ -326,14 +329,14 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/educationSiteImage"
             android:src="@drawable/technews"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/technews"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/educationSiteImage"
-            android:paddingLeft="10dp"
+            android:paddingLeft="8dp"
             android:layout_below="@+id/technewsSiteImage"
             android:text="Tech News"
 
@@ -344,15 +347,16 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/technewsSiteImage"
             android:src="@drawable/taxi"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
+            android:id="@+id/travelsite"
 
             style="@style/TextStyle"
             android:layout_below="@+id/TraveletsiteImage"
 
-            android:paddingLeft="12dp"
+            android:paddingLeft="10dp"
             android:layout_toRightOf="@+id/technewsSiteImage"
 
 
@@ -366,14 +370,14 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/TraveletsiteImage"
             android:src="@drawable/homeservices"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/HomeServiceSite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/TraveletsiteImage"
-            android:paddingLeft="9dp"
+            android:paddingLeft="13dp"
             android:layout_below="@+id/HomeServiceSiteImage"
             android:text="Home Service"
 
@@ -393,9 +397,10 @@ android:layout_height="wrap_content"
             android:id="@+id/medicineSiteImage"
             style="@style/ImageStyle"
             android:src="@drawable/medicines"
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
+            android:id="@+id/medicineSite"
             android:layout_below="@+id/medicineSiteImage"
 
             android:text="Medicine"
@@ -410,11 +415,11 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/medicineSiteImage"
             android:src="@drawable/finance"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/financeSite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/medicineSiteImage"
             android:paddingLeft="15dp"
@@ -429,10 +434,10 @@ android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/financeSiteImage"
             android:src="@drawable/armchair"
 
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
-
+android:id="@+id/furnitureSite"
             style="@style/TextStyle"
             android:layout_below="@+id/furnitureSiteImage"
 
@@ -441,7 +446,7 @@ android:layout_height="wrap_content"
 
 
 
-            android:text=" Furniture"
+            android:text="Furniture"
 
             />
 
@@ -451,13 +456,13 @@ android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/furnitureSiteImage"
             android:src="@drawable/printbutton"
 
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
-
+android:id="@+id/printingSite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/furnitureSiteImage"
-            android:paddingLeft="9dp"
+            android:paddingLeft="13dp"
             android:layout_below="@+id/printingSiteImage"
             android:text="Printing"
 
@@ -479,15 +484,16 @@ android:layout_height="wrap_content"
             android:id="@+id/giftandflowersSiteImage"
             style="@style/ImageStyle"
             android:src="@drawable/gift"
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
+            android:id="@+id/giftandflowersSite"
             android:layout_below="@+id/giftandflowersSiteImage"
 
             android:text="Flower"
 
             style="@style/TextStyle"
-            android:paddingLeft="10dp"
+            android:paddingLeft="15dp"
 
             />
 
@@ -497,15 +503,15 @@ android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/giftandflowersSiteImage"
             android:src="@drawable/deals"
 
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
-
+android:id="@+id/dealSite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/giftandflowersSiteImage"
-            android:paddingLeft="25dp"
+            android:paddingLeft="22dp"
             android:layout_below="@+id/dealSiteImage"
-            android:text="News"
+            android:text="Deals"
 
             />
 
@@ -514,20 +520,20 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/dealSiteImage"
             android:src="@drawable/babydummywithbearheadsilhouette"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/babyandkidsSite"
             style="@style/TextStyle"
             android:layout_below="@+id/babyandkidsSiteImage"
 
-            android:paddingLeft="15dp"
+            android:paddingLeft="23dp"
             android:layout_toRightOf="@+id/dealSiteImage"
 
 
 
-            android:text="  Kids"
+            android:text="Kids"
 
             />
 
@@ -536,16 +542,16 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/babyandkidsSiteImage"
             android:src="@drawable/dress"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/womenshoppingSite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/babyandkidsSiteImage"
-            android:paddingLeft="9dp"
+            android:paddingLeft="13dp"
             android:layout_below="@+id/womenshoppingSiteImage"
-            android:text="Women "
+            android:text="Women"
 
             />
 
@@ -565,9 +571,10 @@ android:layout_height="wrap_content"
             android:id="@+id/deliveryserviceSiteImage"
             style="@style/ImageStyle"
             android:src="@drawable/gift"
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
+            android:id="@+id/deliveryserviceSite"
             android:layout_below="@+id/deliveryserviceSiteImage"
 
             android:text="Delivery"
@@ -583,15 +590,15 @@ android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/deliveryserviceSiteImage"
             android:src="@drawable/ebuzz"
 
-
+            android:onClick="moveToBrandsList"
             />
         <TextView
-
+android:id="@+id/ebuzzsite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/deliveryserviceSiteImage"
-            android:paddingLeft="25dp"
+
             android:layout_below="@+id/ebuzzsiteImage"
-            android:text="Ebuzz"
+            android:text="Entertainment"
 
             />
 
@@ -600,20 +607,20 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/ebuzzsiteImage"
             android:src="@drawable/music"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/musicSite"
             style="@style/TextStyle"
             android:layout_below="@+id/musicSiteImage"
 
-            android:paddingLeft="15dp"
+            android:paddingLeft="21dp"
             android:layout_toRightOf="@+id/ebuzzsiteImage"
 
 
 
-            android:text="  Music"
+            android:text="Music"
 
             />
 
@@ -622,16 +629,16 @@ android:layout_height="wrap_content"
             style="@style/ImageStyle"
             android:layout_toRightOf="@+id/musicSiteImage"
             android:src="@drawable/legal"
-
+            android:onClick="moveToBrandsList"
 
             />
         <TextView
-
+android:id="@+id/legalsite"
             style="@style/TextStyle"
             android:layout_toRightOf="@+id/musicSiteImage"
-            android:paddingLeft="9dp"
+            android:paddingLeft="13dp"
             android:layout_below="@+id/legalsiteImage"
-            android:text="Legal "
+            android:text="Legal"
 
             />
 
