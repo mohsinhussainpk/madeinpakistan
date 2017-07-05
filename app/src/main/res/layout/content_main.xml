@@ -42,6 +42,7 @@
             android:src="@drawable/shoppingcart"
 
 
+
             />
 
         <TextView
@@ -361,7 +362,7 @@ android:id="@+id/technews"
 
 
 
-            android:text=" Travelling"
+            android:text="Travelling"
 
             />
 

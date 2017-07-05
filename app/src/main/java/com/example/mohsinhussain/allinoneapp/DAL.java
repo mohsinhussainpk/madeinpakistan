@@ -336,7 +336,7 @@ public class DAL  {
                     //Toast.makeText(context,getBrandName.get(counter),Toast.LENGTH_SHORT).show();
                     // Log.i("DAL::deleteProfile", getitemname[counter] + " "  );
                     //Log.i("DAL::deleteProfile", getcgpa[counter] + " "  );
-                    counter++;
+//                    counter++;
 
 
                 }
@@ -368,28 +368,22 @@ public class DAL  {
 
     }
 
-    public ArrayList<String> getBrandName() {
-
-
-        return getBrandName;
-
-    }
 
 
 
 
-
-    public void printData() {
-        if (getBrandName.isEmpty()) {
-            Toast.makeText(context, "empty", Toast.LENGTH_SHORT).show();
-
-        } else {
-            for (int i = 0; i < getBrandName.size(); i++) {
-                Toast.makeText(context, getImageUrl.get(i), Toast.LENGTH_SHORT).show();
-            }
-
-
-        }
-
-    }
+//
+//    public void printData() {
+//        if (getBrandName.isEmpty()) {
+//            Toast.makeText(context, "empty", Toast.LENGTH_SHORT).show();
+//
+//        } else {
+//            for (int i = 0; i < getBrandName.size(); i++) {
+//                Toast.makeText(context, getImageUrl.get(i), Toast.LENGTH_SHORT).show();
+//            }
+//
+//
+//        }
+//
+//    }
 }

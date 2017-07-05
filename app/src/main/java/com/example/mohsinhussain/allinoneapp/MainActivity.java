@@ -22,7 +22,12 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String CATEGORY = "category";
-    TextView textviewShoppiing ;
+
+    int click = 0;
+    public static String category = "";
+    static DAL layer;
+    TextView textviewShoppiing;
+
     TextView textviewFood ;
     TextView textViewCarHiring;
     TextView textViewClassified;
@@ -53,14 +58,17 @@ public class MainActivity extends AppCompatActivity
     TextView textViewLegal;
 
 
-    int click = 0;
-    public static String category = "";
-    static DAL layer;
+
+    //static String category = "";
+
+  //  static DAL layer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,6 +84,15 @@ public class MainActivity extends AppCompatActivity
 
 
           layer=new DAL(this,this);
+//        ImageButton imageButton= (ImageButton) findViewById(R.id.shoppingImage);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                category12="Shopping";
+//            }
+//        });
+
+
        //layer.addProfile();
         //layer.addImages();
 //        layer.retrieve();
@@ -149,9 +166,11 @@ public class MainActivity extends AppCompatActivity
 
     public void moveToBrandsList(View view) {
 
-         textviewShoppiing = (TextView) findViewById(R.id.textviewShopping);
-         textviewFood = (TextView) findViewById(R.id.textviewFood);
-         textViewCarHiring = (TextView) findViewById(R.id.carhiring);
+
+        // TextView textviewFood = (TextView) findViewById(R.id.textviewFood);
+        textviewShoppiing = (TextView) findViewById(R.id.textviewShopping);
+        textviewFood = (TextView) findViewById(R.id.textviewFood);
+        textViewCarHiring = (TextView) findViewById(R.id.carhiring);
         textViewClassified = (TextView) findViewById(R.id.classifiedsite);
         textViewJobSite = (TextView) findViewById(R.id.josite);
         textViewNews = (TextView) findViewById(R.id.news);
@@ -178,8 +197,6 @@ public class MainActivity extends AppCompatActivity
         textViewMusic = (TextView) findViewById(R.id.musicSite);
         textViewLegal = (TextView) findViewById(R.id.legalsite);
 
-        // TextView textviewFood = (TextView) findViewById(R.id.textviewFood);
-
 
 
 
@@ -187,6 +204,8 @@ public class MainActivity extends AppCompatActivity
 
 
             case R.id.shoppingImage:
+
+
                 category = textviewShoppiing.getText().toString();
                 break;
 
@@ -230,6 +249,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.technewsSiteImage:
                 category = textViewTechNews.getText().toString();
                 break;
+            case R.id.TraveletsiteImage:
+                category = textViewTravelling.getText().toString();
+                break;
+
             case R.id.HomeServiceSiteImage:
                 category = textViewHomeServices.getText().toString();
                 break;
@@ -275,16 +298,21 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
         }
 
              Intent intent=new Intent(this,StoresActivity.class);
-        intent.putExtra(CATEGORY,category);
 
-layer.searchProfile(category);
+
+
+        intent.putExtra(CATEGORY,category);
+        layer.searchProfile(category);
         //layer.printData();
         startActivity(intent);
 
     }
+
+
 
 
 

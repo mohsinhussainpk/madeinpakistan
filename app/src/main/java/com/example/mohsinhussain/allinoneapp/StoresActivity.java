@@ -60,7 +60,10 @@ public class StoresActivity extends AppCompatActivity {
 
         DAL layer=new DAL();
 
+
+
         String category=getIntent().getStringExtra(MainActivity.CATEGORY);
+
 //layer.searchProfile();
 
 
