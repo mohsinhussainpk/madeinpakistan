@@ -1,5 +1,6 @@
 package com.example.mohsinhussain.allinoneapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -18,10 +19,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String CATEGORY = "category";
+    private static String DB_NAME = "Brand Records";
 
     int click = 0;
     public static String category = "";
@@ -60,13 +67,22 @@ public class MainActivity extends AppCompatActivity
 
 
     //static String category = "";
-
+    public static FirebaseDatabase firebase;
+    public static DatabaseReference database;
+    public static DatabaseReference table;
+    public static StorageReference mStorageRef;
   //  static DAL layer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        ProgressDialog progress = new ProgressDialog(this);
+//        progress.setMessage("Loading");
+//        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progress.setIndeterminate(false);
+//       progress.show();
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -82,8 +98,32 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        firebase = FirebaseDatabase.getInstance();
+        //firebase.setPersistenceEnabled(true);
+
+        database = firebase.getReference(DB_NAME);
+//        table = database.child(ENTITY_NAME_PROFILES);
+
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+
+
 
           layer=new DAL(this,this);
+
+        try {
+            Thread.sleep(500);
+            layer.searchProfile("");
+
+
+
+
+
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
 //        ImageButton imageButton= (ImageButton) findViewById(R.id.shoppingImage);
 //        imageButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -145,7 +185,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_feedback) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -155,9 +195,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
-        }
+        } 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -303,12 +341,13 @@ public class MainActivity extends AppCompatActivity
 
              Intent intent=new Intent(this,StoresActivity.class);
 
-
+        layer.searchProfile(category);
 
         intent.putExtra(CATEGORY,category);
-        layer.searchProfile(category);
+
         //layer.printData();
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
     }
 

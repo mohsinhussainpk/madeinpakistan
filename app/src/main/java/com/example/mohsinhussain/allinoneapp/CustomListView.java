@@ -42,8 +42,7 @@ public class CustomListView extends ArrayAdapter<String> {
 
         this.images = images;
         this.mcontext = context;
-         mInflater = (LayoutInflater) mcontext.
-                getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
 
     }
 
@@ -68,7 +67,8 @@ View vi=convertView;
         ViewHolder mViewHolder = new ViewHolder();
 
         if (vi == null) {
-
+            mInflater = (LayoutInflater) mcontext.
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             vi = mInflater.inflate(R.layout.custom_view, parent,false);
             //convertView = mInflater.inflate(R.layout.custom_view, parent, false);
             mViewHolder.mFlag = (ImageView) vi.findViewById(R.id.imageView);

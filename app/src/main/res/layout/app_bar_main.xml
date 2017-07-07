@@ -23,7 +23,7 @@
 
     <include
         layout="@layout/content_main"
-        android:layout_height="457dp" />
+         />
 
 
 </android.support.design.widget.CoordinatorLayout>

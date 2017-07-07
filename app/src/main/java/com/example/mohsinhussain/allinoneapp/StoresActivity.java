@@ -1,8 +1,10 @@
 package com.example.mohsinhussain.allinoneapp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,12 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.example.mohsinhussain.allinoneapp.R.id.listView;
+
 public class StoresActivity extends AppCompatActivity {
 
 
     TextView name[];
     TextView cgpatext[];
-
+    public static ListView listView;
+    int click=0;
+    DAL layer = new DAL();
     //calling Dal object to fetch the brand name which is fetched from firebase in Dal layer
 
 
@@ -58,8 +64,10 @@ public class StoresActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stores);
 
 
-        DAL layer=new DAL();
 
+//        LongOperation op=new LongOperation();
+//        op.execute("");
+//        op.onPreExecute();
 
 
         String category=getIntent().getStringExtra(MainActivity.CATEGORY);
@@ -100,12 +108,28 @@ public class StoresActivity extends AppCompatActivity {
 
         //scanner.close();
 
+        CustomListView myAdapter = null;
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        try {
+                    Thread.sleep(400);
+                           myAdapter = new CustomListView(StoresActivity.this, DAL.getBrandName, DAL.getImageUrl);
 
-        CustomListView myAdapter = new CustomListView(this, DAL.getBrandName, DAL.getImageUrl);
 
+
+
+                       } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+        listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(myAdapter);
+
+            click++;
+
+
+
+        Log.i("DAL::deleteProfile", DAL.getBrandName.size()+"");
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -130,4 +154,37 @@ public class StoresActivity extends AppCompatActivity {
 //                           }
 //        });
 //    }
+
+    private class LongOperation extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            for(int i=0;i<5;i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+        }
+    }
+
 }

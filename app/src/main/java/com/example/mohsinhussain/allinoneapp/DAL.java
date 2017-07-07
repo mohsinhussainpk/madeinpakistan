@@ -92,13 +92,9 @@ public class DAL  {
 
 
     public DAL(Activity activity, Context context) {
+
         this.activity = activity;
-        firebase = FirebaseDatabase.getInstance();
-        firebase.setPersistenceEnabled(true);
-        database = firebase.getReference(DB_NAME);
-//        table = database.child(ENTITY_NAME_PROFILES);
-//        table.keepSynced(true);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+
 
         this.context = context;
     }
@@ -309,16 +305,34 @@ public class DAL  {
         getBrandName=new ArrayList<String>();
         getBrandUrl=new ArrayList<String>();
         getImageUrl=new ArrayList<String>();
-        table = database.child(category);
-        table.keepSynced(true);
 
-        table.addValueEventListener(new ValueEventListener() {
+
+        if(category=="")
+        {
+            MainActivity.table = MainActivity.database.child("Shopping");
+
+        }
+        else
+        {
+            MainActivity.table = MainActivity.database.child(category);
+
+        }
+
+
+        MainActivity.table.keepSynced(true);
+
+
+
+
+        MainActivity.table.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot record : dataSnapshot.getChildren()) {
 
 
-                    Log.i("DAL::deleteProfile", record.child("name").getValue(String.class) + " "  );
+                    Log.i("DAL::deleteProfile", record.child("Name").getValue(String.class) + " "  );
+              //      Log.i("DAL::deleteProfile", counter + " "  );
+
                     //Log.i("DAL::deleteProfile", record.child("Roll").getValue(String.class) + " "  );
                     getBrandName.add( String.valueOf(record.child("Name").getValue(String.class)));
                     getBrandUrl.add( String.valueOf(record.child("Url").getValue(String.class)));
