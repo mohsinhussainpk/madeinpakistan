@@ -63,7 +63,7 @@ public class CustomListView extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-View vi=convertView;
+        View vi=convertView;
         ViewHolder mViewHolder = new ViewHolder();
 
         if (vi == null) {

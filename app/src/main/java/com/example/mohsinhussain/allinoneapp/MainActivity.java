@@ -1,11 +1,17 @@
 package com.example.mohsinhussain.allinoneapp;
 
+import android.app.Application;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,9 +30,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //ViewPager viewPager;
+    //CustomSwipeAdapter customSwipeAdapter;
     public static final String CATEGORY = "category";
     private static String DB_NAME = "Brand Records";
 
@@ -108,7 +118,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-          layer=new DAL(this,this);
+        layer=new DAL(this,this);
 
         try {
             Thread.sleep(500);
@@ -122,7 +132,6 @@ public class MainActivity extends AppCompatActivity
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
 
 //        ImageButton imageButton= (ImageButton) findViewById(R.id.shoppingImage);
 //        imageButton.setOnClickListener(new View.OnClickListener() {
@@ -179,23 +188,89 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_feedback) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","panoplytek@gmail.com", null));
+
+            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+//            Intent myIntent = new Intent(Intent.ACTION_SEND);
+//            PackageManager pm = getPackageManager();
+//            Intent tempIntent = new Intent(Intent.ACTION_SEND);
+//            tempIntent.setType("*/*");
+//            List<ResolveInfo> resInfo = pm.queryIntentActivities(tempIntent, 0);
+//            for (int i = 0; i < resInfo.size(); i++) {
+//                ResolveInfo ri = resInfo.get(i);
+//                if (ri.activityInfo.packageName.contains("android.gm")) {
+//                    myIntent.setComponent(new ComponentName(ri.activityInfo.packageName, ri.activityInfo.name));
+//
+//                    myIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"panoplytek@gmail.com"});
+//                    myIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("panoplytek@gmail.com"));
+//                    myIntent.setAction(Intent.ACTION_SEND);
+//                }
+//            }
+//            startActivity(myIntent);
+
+//
+//            final Intent intent = new Intent(android.content.Intent.ACTION_SEND));
+//            intent.setType("text/plain");
+//            final PackageManager pm = getPackageManager();
+//            final List<ResolveInfo> matches = pm.queryIntentActivities(intent, 0);
+//            ResolveInfo best = null;
+//            for (final ResolveInfo info : matches)
+//                if (info.activityInfo.packageName.endsWith(".gm") ||
+//                        info.activityInfo.name.toLowerCase().contains("gmail")) best = info;
+//            if (best != null)
+//                intent.setClassName(best.activityInfo.packageName, best.activityInfo.name);
+//            startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=Orion.Soft")));
+
+
+
 
         } else if (id == R.id.nav_slideshow) {
 
+            Intent intent=new Intent(getApplicationContext(),TermsAndConditionActivity.class);
+            startActivity(intent);
+
+
         } else if (id == R.id.nav_manage) {
+            Intent intent=new Intent(getApplicationContext(),PrivacyActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_share) {
+//            Intent myIntent=new Intent(Intent.ACTION_SEND);
+//            myIntent.setType("Text/Plan");
+//            String shareBody="Your body here";
+//            String shareSubject="Your Subject here";
+//            myIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
+//            myIntent.putExtra(Intent.EXTRA_SUBJECT,shareSubject);
+//            startActivity(Intent.createChooser(myIntent,"Share"));
 
-        } 
+            try {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+                String sAux = "\nLet me recommend you this application\n\n";
+                sAux = sAux + "https://play.google.com/store/apps/details?id=Orion.Soft \n\n";
+                i.putExtra(Intent.EXTRA_TEXT, sAux);
+                startActivity(Intent.createChooser(i, "choose one"));
+            } catch(Exception e) {
+                //e.toString();
+            }
+
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -346,8 +421,10 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra(CATEGORY,category);
 
         //layer.printData();
+
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
 
     }
 
