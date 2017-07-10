@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
     <style name="AppTheme.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
@@ -93,6 +95,25 @@
 
     </style>
 
+    <style name="ImageStyle3">
+
+
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxWidth">100dp</item>
+        <item name="android:maxHeight">150dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+
+
+
+        <item name="android:padding">20dp</item>
+
+
+
+
+
+    </style>
 
 
 

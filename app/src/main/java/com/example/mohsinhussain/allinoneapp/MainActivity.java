@@ -3,12 +3,14 @@ package com.example.mohsinhussain.allinoneapp;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
@@ -30,7 +32,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +46,12 @@ public class MainActivity extends AppCompatActivity
     //CustomSwipeAdapter customSwipeAdapter;
     public static final String CATEGORY = "category";
     private static String DB_NAME = "Brand Records";
+
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private static final Integer[] XMEN= {R.drawable.a,R.drawable.armchair,R.drawable.taxi,R.drawable.b,R.drawable.blackbackground};
+    private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
+
 
     int click = 0;
     public static String category = "";
@@ -108,30 +121,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        firebase = FirebaseDatabase.getInstance();
-        //firebase.setPersistenceEnabled(true);
-
-        database = firebase.getReference(DB_NAME);
-//        table = database.child(ENTITY_NAME_PROFILES);
-
-        mStorageRef = FirebaseStorage.getInstance().getReference();
-
-
-
-        layer=new DAL(this,this);
-
-        try {
-            Thread.sleep(500);
-            layer.searchProfile("");
+        init();
 
 
 
 
 
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
 //        ImageButton imageButton= (ImageButton) findViewById(R.id.shoppingImage);
 //        imageButton.setOnClickListener(new View.OnClickListener() {
@@ -420,13 +415,64 @@ public class MainActivity extends AppCompatActivity
 
         intent.putExtra(CATEGORY,category);
 
-        //layer.printData();
 
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
 
     }
+
+    private void init() {
+        for(int i=0;i<XMEN.length;i++)
+            XMENArray.add(XMEN[i]);
+
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager.setAdapter(new SliderAdapter(MainActivity.this,XMENArray));
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
+        indicator.setViewPager(mPager);
+
+
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == XMEN.length) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 5000, 5000);
+    }
+
+    public void initializeConnection()
+    {
+        firebase = FirebaseDatabase.getInstance();
+        //firebase.setPersistenceEnabled(true);
+
+        database = firebase.getReference(DB_NAME);
+//        table = database.child(ENTITY_NAME_PROFILES);
+
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+
+
+
+        layer=new DAL(this,this);
+
+
+        layer.searchProfile("");
+
+
+
+    }
+
 
 
 
