@@ -53,8 +53,6 @@ public class IntroActivity extends Activity {
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-
-
         MainActivity m=new MainActivity();
         m.initializeConnection();
 
@@ -157,7 +155,7 @@ public class IntroActivity extends Activity {
     private int getItem(int i) {
         return viewPager.getCurrentItem() + i;
     }
-  
+
 
     private void launchHomeScreen() {
 

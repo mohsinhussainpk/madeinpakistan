@@ -128,7 +128,7 @@ public class StoresActivity extends AppCompatActivity {
 
 
 
-        Log.i("DAL::deleteProfile", DAL.getBrandName.size()+"");
+       // Log.i("DAL::deleteProfile", DAL.getBrandName.size()+"");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     public static final String CATEGORY = "category";
     private static String DB_NAME = "Brand Records";
 
-    private static ViewPager mPager;
+    private  ViewPager mPager;
     private static int currentPage = 0;
     private static final Integer[] XMEN= {R.drawable.a,R.drawable.armchair,R.drawable.taxi,R.drawable.b,R.drawable.blackbackground};
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
@@ -122,6 +122,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         init();
+        DAL layer=new DAL(this,this);
+        // layer.sliderDetail();
+        layer.searchProfile("");
 
 
 
@@ -423,6 +426,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void init() {
+
+
         for(int i=0;i<XMEN.length;i++)
             XMENArray.add(XMEN[i]);
 
@@ -437,7 +442,7 @@ public class MainActivity extends AppCompatActivity
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-                if (currentPage == XMEN.length) {
+                if (currentPage == XMENArray.size()) {
                     currentPage = 0;
                 }
                 mPager.setCurrentItem(currentPage++, true);
@@ -449,7 +454,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 handler.post(Update);
             }
-        }, 5000, 5000);
+        }, 4000, 4000);
     }
 
     public void initializeConnection()
@@ -464,10 +469,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        layer=new DAL(this,this);
 
 
-        layer.searchProfile("");
 
 
 
