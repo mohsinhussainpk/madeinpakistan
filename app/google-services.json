@@ -1,66 +1,35 @@
 {
   "project_info": {
-    "project_number": "503733291535",
-    "firebase_url": "https://all-in-one-app-panoplytek.firebaseio.com",
-    "project_id": "all-in-one-app-panoplytek",
-    "storage_bucket": "all-in-one-app-panoplytek.appspot.com"
+    "project_number": "319300667014",
+    "firebase_url": "https://made-in-pakistan.firebaseio.com",
+    "project_id": "made-in-pakistan",
+    "storage_bucket": "made-in-pakistan.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:503733291535:android:eef2836aeaf0f0ff",
-        "android_client_info": {
-          "package_name": "com.example.hp.firebasepractice"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "503733291535-3tq1tdmtliqlp8jcikc12u86vnadmv9a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBujrm_K77KtWGyH7lMMnM1-GfHr6dg3y0"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:503733291535:android:e748d739ede9e5d8",
+        "mobilesdk_app_id": "1:319300667014:android:e748d739ede9e5d8",
         "android_client_info": {
           "package_name": "com.example.mohsinhussain.allinoneapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "503733291535-4qmvuau8rt5s8p3hufru3uo8kkjbt9d6.apps.googleusercontent.com",
+          "client_id": "319300667014-b26b6ihdjq27lddka9mcmnqpvedrbnqp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.mohsinhussain.allinoneapp",
-            "certificate_hash": "cef23bbdc1384a9ed33d1d12bf390f02bcdacebb"
+            "certificate_hash": "03a37b85703b58c34ebb8745b522e4f17695167d"
           }
         },
         {
-          "client_id": "503733291535-3tq1tdmtliqlp8jcikc12u86vnadmv9a.apps.googleusercontent.com",
+          "client_id": "319300667014-td2jojrkse96iqo8b82ujafducsifq0m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBujrm_K77KtWGyH7lMMnM1-GfHr6dg3y0"
+          "current_key": "AIzaSyDrO3C_e4J_m70imbeOaZ6B8YNU1W5PzkQ"
         }
       ],
       "services": {
@@ -71,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "503733291535-3tq1tdmtliqlp8jcikc12u86vnadmv9a.apps.googleusercontent.com",
+              "client_id": "319300667014-td2jojrkse96iqo8b82ujafducsifq0m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

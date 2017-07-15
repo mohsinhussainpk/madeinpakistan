@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.media.MediaPlayer;
@@ -14,6 +15,7 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -53,9 +55,11 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
 
 
-    int click = 0;
+
+    public static Context context;
+    int click;
     public static String category = "";
-    static DAL layer;
+    DAL layer;
     TextView textviewShoppiing;
 
     TextView textviewFood ;
@@ -88,25 +92,26 @@ public class MainActivity extends AppCompatActivity
     TextView textViewLegal;
 
 
-
     //static String category = "";
     public static FirebaseDatabase firebase;
     public static DatabaseReference database;
     public static DatabaseReference table;
     public static StorageReference mStorageRef;
-  //  static DAL layer;
+    private ArrayList<String> brands;
+    //  static DAL layer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        context=this;
+        click=0;
 //        ProgressDialog progress = new ProgressDialog(this);
 //        progress.setMessage("Loading");
 //        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 //        progress.setIndeterminate(false);
 //       progress.show();
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -123,34 +128,6 @@ public class MainActivity extends AppCompatActivity
 
         init();
         DAL layer=new DAL(this,this);
-        // layer.sliderDetail();
-        layer.searchProfile("");
-
-
-
-
-
-
-//        ImageButton imageButton= (ImageButton) findViewById(R.id.shoppingImage);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                category12="Shopping";
-//            }
-//        });
-
-
-       //layer.addProfile();
-        //layer.addImages();
-//        layer.retrieve();
-//        //layer.getBrandName();
-//        layer.printData();
-//layer.searchProfile();
-
-        //layer.printData();
-
-
-
 
     }
 
@@ -315,35 +292,34 @@ public class MainActivity extends AppCompatActivity
 
 
             case R.id.shoppingImage:
-
-
-                category = textviewShoppiing.getText().toString();
+                category = "Automobiles";
+                Log.d("REF",table.toString());
                 break;
 
             case R.id.foodImage:
-                category = textviewFood.getText().toString();
+                category = "Banks";
                 break;
             case R.id.carhiringImage:
-                category = textViewCarHiring.getText().toString();
+                category = "Daily Use Items";
                 break;
 
             case R.id.classifiedSitesImage:
-                category = textViewClassified.getText().toString();
+                category = "Government Web Services";
                 break;
             case R.id.jobSiteImage:
-                category = textViewJobSite.getText().toString();
+                category = "Home Appliances";
                 break;
             case R.id.newsImage:
-                category = textViewNews.getText().toString();
+                category = "LifeStyle";
                 break;
             case R.id.mobileWalletsImage:
-                category = textViewWallets.getText().toString();
+                category = "Phones";
                 break;
             case R.id.BookingImage:
-                category = textViewBooking.getText().toString();
+                category = "Travel";
                 break;
             case R.id.GroceryImage:
-                category = textViewGrocery.getText().toString();
+                category = "Web Services";
                 break;
             case R.id.CarSiteImage:
                 category = textViewCarSite.getText().toString();
@@ -407,22 +383,8 @@ public class MainActivity extends AppCompatActivity
                 category = textViewLegal.getText().toString();
                 break;
 
-
-
-
         }
-
-             Intent intent=new Intent(this,StoresActivity.class);
-
-        layer.searchProfile(category);
-
-        intent.putExtra(CATEGORY,category);
-
-
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-
+        layer.searchProfile(category,table);
     }
 
     private void init() {
@@ -461,25 +423,16 @@ public class MainActivity extends AppCompatActivity
     {
         firebase = FirebaseDatabase.getInstance();
         //firebase.setPersistenceEnabled(true);
-
-        database = firebase.getReference(DB_NAME);
-//        table = database.child(ENTITY_NAME_PROFILES);
-
+        table = firebase.getReference().child("MIP");
         mStorageRef = FirebaseStorage.getInstance().getReference();
-
-
-
-
-
-
-
+        Log.d("REF",table.toString());
 
     }
 
-
-
-
-
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("OnResume","OnResume called");
+        initializeConnection();
+    }
 }

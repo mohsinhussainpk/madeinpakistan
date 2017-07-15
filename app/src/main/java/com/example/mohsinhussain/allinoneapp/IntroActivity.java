@@ -3,6 +3,7 @@ package com.example.mohsinhussain.allinoneapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Message;
@@ -11,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,48 +42,54 @@ public class IntroActivity extends Activity {
     private static String DB_NAME = "Brand Records";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        firebase = FirebaseDatabase.getInstance();
-        //firebase.setPersistenceEnabled(true);
+        SharedPreferences settings = getSharedPreferences("MyPrefs", 0);
+        if (settings.getBoolean("is_first_time", true)) {
+            //the app is being launched for first time, do something
+            Log.d("TAG", "First time");
 
-        database = firebase.getReference(DB_NAME);
+            firebase = FirebaseDatabase.getInstance();
+            //firebase.setPersistenceEnabled(true);
+
+            database = firebase.getReference(DB_NAME);
 //        table = database.child(ENTITY_NAME_PROFILES);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+            mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        MainActivity m=new MainActivity();
-        m.initializeConnection();
+            MainActivity m=new MainActivity();
+            m.initializeConnection();
+            viewPager = (ViewPager) findViewById(R.id.view_pager);
+            dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+            btnSkip = (Button) findViewById(R.id.btn_skip);
+            btnNext = (Button) findViewById(R.id.btn_next);
 
+            layouts = new int[]{
+                    R.layout.slide1_layout,
+                    R.layout.slide2_layout,
+                    R.layout.slide3_layout};
 
+            // adding bottom dots
+            addBottomDots(0);
 
+            viewPagerAdapter = new ViewPagerAdapter();
+            viewPager.setAdapter(viewPagerAdapter);
+            viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+            // record the fact that the app has been started at least once
+            settings.edit().putBoolean("is_first_time", false).commit();
+        }
+        else
+        {
 
-
-
-
-
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-        btnSkip = (Button) findViewById(R.id.btn_skip);
-        btnNext = (Button) findViewById(R.id.btn_next);
-
-        layouts = new int[]{
-                R.layout.slide1_layout,
-                R.layout.slide2_layout,
-                R.layout.slide3_layout};
-
-        // adding bottom dots
-        addBottomDots(0);
-
-        viewPagerAdapter = new ViewPagerAdapter();
-        viewPager.setAdapter(viewPagerAdapter);
-        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
-
-
+            MainActivity m=new MainActivity();
+            m.initializeConnection();
+            Intent in =new Intent(IntroActivity.this,MainActivity.class);
+            startActivity(in);
+        }
 
     }
     public  void btnSkipClick(View v)
