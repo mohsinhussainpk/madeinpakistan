@@ -1,0 +1,79 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height=
+        "match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <ScrollView
+        android:id="@+id/sv_inner"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true">
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:onClick="sliderImageClick"
+                android:focusableInTouchMode="true"
+
+
+
+                />
+
+            <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/pager"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="120dp"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--/>-->
+            <!--<me.relex.circleindicator.CircleIndicator-->
+            <!--android:id="@+id/indicator"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="10dp"-->
+            <!--android:layout_alignBottom="@+id/pager"-->
+
+            <!--app:ci_drawable="@drawable/circleindicator_shape"-->
+
+
+
+            <!--/>-->
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                ads:adSize="SMART_BANNER"
+                android:layout_below="@+id/slider"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111" >
+
+            </com.google.android.gms.ads.AdView>
+
+            <com.example.mohsinhussain.allinoneapp.ExpandableHeightGridView
+                android:id="@+id/customgrid"
+                android:stretchMode="columnWidth"
+                android:horizontalSpacing="0.7dp"
+                android:verticalSpacing="0.7dp"
+                android:background="#2B2E4A"
+                android:gravity="center"
+                android:layout_below="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:numColumns="3" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

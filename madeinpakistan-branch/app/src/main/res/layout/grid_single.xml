@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/iconBackgroundLinear"
+        android:layout_width="54dip"
+        android:layout_height="57dip"
+    android:orientation="vertical"
+    android:background="#fff"
+        android:gravity="center"
+    android:paddingTop="10dp"
+
+    >
+
+    <ImageButton
+
+        android:id="@+id/os_images"
+       style="@style/ImageStyle"
+        android:src="@mipmap/ic_launcher"
+
+android:tint="@color/colorAccent"
+        android:onClick="moveToBrandsList"
+        />
+
+    <TextView
+        android:paddingTop="2dip"
+        android:id="@+id/os_texts"
+        android:textAlignment="center"
+android:textColor="@color/colorPrimary"
+        android:gravity="center_horizontal"
+
+        android:lines="2"
+        style="@style/TextStyle"
+        />
+
+</LinearLayout>

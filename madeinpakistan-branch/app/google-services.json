@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "319300667014",
+    "firebase_url": "https://made-in-pakistan.firebaseio.com",
+    "project_id": "made-in-pakistan",
+    "storage_bucket": "made-in-pakistan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319300667014:android:e748d739ede9e5d8",
+        "android_client_info": {
+          "package_name": "com.example.mohsinhussain.allinoneapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319300667014-b26b6ihdjq27lddka9mcmnqpvedrbnqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mohsinhussain.allinoneapp",
+            "certificate_hash": "03a37b85703b58c34ebb8745b522e4f17695167d"
+          }
+        },
+        {
+          "client_id": "319300667014-td2jojrkse96iqo8b82ujafducsifq0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrO3C_e4J_m70imbeOaZ6B8YNU1W5PzkQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319300667014-td2jojrkse96iqo8b82ujafducsifq0m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
