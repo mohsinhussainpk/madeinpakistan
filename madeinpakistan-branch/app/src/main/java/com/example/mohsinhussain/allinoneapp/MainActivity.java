@@ -93,13 +93,15 @@ public class MainActivity extends AppCompatActivity
             "Automobiles",
             "Banks",
             "Daily Use Items",
-            "Goverment Web Services",
+            "Government Web Services",
             "Home Appliances",
             "Life Style",
             "Phones",
             "Sports Goods",
             "Travel",
             "Web Services",
+            "News",
+            "Daily Deals"
             //"Social",
 
 
@@ -111,17 +113,20 @@ public class MainActivity extends AppCompatActivity
     } ;
     int[] imageId = {
 
+            R.drawable.automobilethree,
+            R.drawable.banks,
+            R.drawable.dailyuseitemsone,
+            R.drawable.webservicesthree,
+            R.drawable.homeservices,
+           // R.drawable.,
+            R.drawable.lifestyletwo,
+            R.drawable.phones,
+            R.drawable.sportsone,
+            R.drawable.travel,
+            R.drawable.webservicesone,
             R.drawable.newspaper,
             R.drawable.deals,
-            R.drawable.shoppingcart,
-            R.drawable.food,
-            R.drawable.taxi,
-           // R.drawable.,
-            R.drawable.onlinejobsearchsymbol,
-            R.drawable.wallet,
-            R.drawable.theaterticket,
-            R.drawable.groceriesbag,
-            R.drawable.carbuy,
+
 
 
 
@@ -133,13 +138,16 @@ public class MainActivity extends AppCompatActivity
     public static DAL layer;
     ImageButton GridImageButton;
     //  static DAL layer;
-    public static InterstitialAd mInterstitialAd;
+
     SliderLayout sliderLayout;
+    public static InterstitialAd mInterstitialAd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
 
         context=this;
@@ -248,12 +256,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        CustomDialogClass customDialogClass=new CustomDialogClass(this);
+        customDialogClass.show();
     }
 
     @Override
@@ -438,6 +442,7 @@ public class MainActivity extends AppCompatActivity
         Log.d("REF",table.toString());
 
     }
+
 
     @Override
     protected void onResume() {

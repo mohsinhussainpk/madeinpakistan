@@ -31,8 +31,21 @@
         <activity android:name=".PrivacyActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".FirstListView" />
-        <activity android:name=".SplashActivity"/>
-        <activity android:name=".SecondListViewActivity"></activity>
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".SecondListViewActivity" />
+
+        <service android:name=".NotificationClass">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".fcmInstanceIdServiceClass">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".ThirdListViewActivity"></activity>
     </application>
 
 </manifest>

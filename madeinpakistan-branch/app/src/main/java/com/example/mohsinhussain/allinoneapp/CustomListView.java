@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -80,7 +82,10 @@ public class CustomListView extends ArrayAdapter<String> {
         }
         notifyDataSetChanged();
 
-        Picasso.with(mcontext).load(images.get(position)).into(mViewHolder.mFlag);
+
+        Picasso.with(mcontext).load(images.get(position)).placeholder(R.drawable.ic_menu_camera).resize(150, 150)
+                .error(R.drawable.ic_menu_camera).into(mViewHolder.mFlag);
+
 
         mViewHolder.mName.setText(brand.get(position));
 

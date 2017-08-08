@@ -15,6 +15,7 @@
     <string name="desc_slide2">It will  keep you updated aobut all stores and activity</string>
     <string name="title_slide3">Alert on 100%</string>
     <string name="desc_slide3">It will alert you when battery reaches 100%</string>
+    <string name="title_activity_third_list_view">ThirdListViewActivity</string>
 
 
 </resources>

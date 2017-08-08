@@ -18,7 +18,7 @@
        style="@style/ImageStyle"
         android:src="@mipmap/ic_launcher"
 
-android:tint="@color/colorAccent"
+android:tint="@color/colorPrimary"
         android:onClick="moveToBrandsList"
         />
 

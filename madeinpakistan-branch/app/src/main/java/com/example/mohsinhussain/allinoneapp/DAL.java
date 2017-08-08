@@ -191,7 +191,7 @@ public class DAL  {
                     // getBrandName.add(String.valueOf(record.child("name").getValue(String.class)));
                 }
                 Log.d("getbrandname count",String.valueOf(getBrandName.size()));
-                progressDialog.dismiss();
+
                 //              Dialog.hide();
                 Intent intent=new Intent(MainActivity.context,StoresActivity.class);//opening the  stores activity as soon as the
                                                                                     //progress bar finishes.
@@ -242,8 +242,8 @@ public class DAL  {
                     //      Log.i("DAL::deleteProfile", counter + " "  );
 
                     //Log.i("DAL::deleteProfile", record.child("Roll").getValue(String.class) + " "  );
-                    sliderImage.add( String.valueOf(record.child("Imgid").getValue(String.class)));
-                    sliderUrl.add( String.valueOf(record.child("Url").getValue(String.class)));
+                    sliderImage.add( String.valueOf(record.child("img url").getValue(String.class)));
+                    sliderUrl.add( String.valueOf(record.child("url").getValue(String.class)));
                   // Toast.makeText(context,sliderImage.get(counter),Toast.LENGTH_SHORT).show();
 //getImageUrl.add("https://firebasestorage.googleapis.com/v0/b/all-in-one-app-panoplytek.appspot.com/o/0.jpg?alt=media&token=058741a8-140b-4eab-9443-edd35c2f2f0c");
 //                    getImageUrl.add(String.valueOf(record.child("Imgid").getValue(String.class)));

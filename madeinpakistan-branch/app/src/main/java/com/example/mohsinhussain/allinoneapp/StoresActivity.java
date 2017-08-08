@@ -62,13 +62,9 @@ public class StoresActivity extends AppCompatActivity {
         //DAL layer= new DAL(this,this);
         Log.d("ref",ref.toString());
         CustomListView myAdapter = null;
-        try {
-            Thread.sleep(500);
+
             myAdapter = new CustomListView(StoresActivity.this, brands, DAL.getImageUrl);
 
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         myAdapter.notifyDataSetChanged();
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(myAdapter);
@@ -80,7 +76,7 @@ public class StoresActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild("url")){
-                            Toast.makeText(getApplicationContext(),"WebBrowser",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(),"WebBrowser",Toast.LENGTH_LONG).show();
                             Intent mIntent = new Intent(StoresActivity.this, Webview.class);
                             Log.d("URL:",dataSnapshot.child("url").getValue(String.class));
                             mIntent.putExtra("brandUrl", dataSnapshot.child("url").getValue(String.class));
@@ -140,4 +136,15 @@ public class StoresActivity extends AppCompatActivity {
         }
     }
     */
+@Override
+public void onBackPressed() {
+
+
+//        super.onBackPressed();
+//        Intent intent= new Intent(this,MainActivity.class);
+//        startActivity(intent);
+    finish();
+    overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+}
+
 }

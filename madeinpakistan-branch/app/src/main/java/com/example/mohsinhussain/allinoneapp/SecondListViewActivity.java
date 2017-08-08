@@ -9,6 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,17 +22,23 @@ import java.util.ArrayList;
 public class SecondListViewActivity extends AppCompatActivity {
 
     String category;
+    public final static  String CAT = "category";
     ListView listView;
     CustomListView Adapter;
     private ArrayList<String> brands;
 
-    public DatabaseReference ref;
+    public static DatabaseReference ref;
     DAL layer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_list_view);
-        category =getIntent().getStringExtra(StoresActivity.CAT);
+       // MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        AdView mAdView = (AdView) findViewById(R.id.adView1);
+        AdRequest adRequest = new AdRequest.Builder() .build();
+
+        mAdView.loadAd(adRequest);
+        category =getIntent().getStringExtra(FirstListView.CAT);
         layer=new DAL(this,this);
 
         ref=FirstListView.ref.child(category);
@@ -57,6 +66,15 @@ public class SecondListViewActivity extends AppCompatActivity {
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                             return;
                         }
+//                        else{
+//                            //Toast.makeText(getApplication(),"NewList",Toast.LENGTH_LONG).show();
+//                            Intent mIntent = new Intent(SecondListViewActivity.this, ThirdListViewActivity.class);
+//                            Log.d("Position",String.valueOf(position));
+//                            mIntent.putExtra(CAT, brands.get(position));
+//                            startActivity(mIntent);
+//                            overridePendingTransition(R.anim.slide_out_left,R.anim.slide_in_right);
+//
+//                        }
                     }
 
                     @Override
@@ -73,4 +91,15 @@ public class SecondListViewActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+
+
+//        super.onBackPressed();
+//        Intent intent= new Intent(this,MainActivity.class);
+//        startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+    }
+
 }
