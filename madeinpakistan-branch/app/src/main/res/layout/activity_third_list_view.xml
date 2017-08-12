@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    tools:context="com.example.mohsinhussain.allinoneapp.ThirdListViewActivity">
+    tools:context="com.e.mohsinhussain.madeinpakistan.ThirdListViewActivity">
 
     <ScrollView
         android:layout_height="fill_parent"

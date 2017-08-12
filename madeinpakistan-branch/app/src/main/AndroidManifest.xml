@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mohsinhussain.allinoneapp">
+    package="com.e.mohsinhussain.madeinpakistan">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".IntroActivity"
+            android:name="com.e.mohsinhussain.madeinpakistan.SplashActivity"
             android:label="@string/app_name"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -25,27 +28,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StoresActivity" />
-        <activity android:name=".Webview" />
-        <activity android:name=".TermsAndConditionActivity" />
-        <activity android:name=".PrivacyActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".FirstListView" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".SecondListViewActivity" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.Webview" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.TermsAndConditionActivity" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.PrivacyActivity" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.MainActivity" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.FirstListView" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.StoresActivity" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.SecondListViewActivity" />
 
-        <service android:name=".NotificationClass">
+
+
+
+        <service android:name="com.e.mohsinhussain.madeinpakistan.NotificationClass">
+            android:enabled="true"
+            android:exported="true"
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".fcmInstanceIdServiceClass">
+        <service android:name="com.e.mohsinhussain.madeinpakistan.fcmInstanceIdServiceClass">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".ThirdListViewActivity"></activity>
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.ThirdListViewActivity" />
+        <activity android:name="com.e.mohsinhussain.madeinpakistan.Main2Activity"></activity>
     </application>
 
 </manifest>

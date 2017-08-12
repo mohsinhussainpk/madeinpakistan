@@ -4,19 +4,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
+           android:icon="@drawable/share1"
             android:title="Share App"
+            android:height="35dp"
+            android:width="35dp"
+
 
             />
         <item
             android:id="@+id/nav_feedback"
-            android:icon="@drawable/ic_mail_outline_black_24dp"
+            android:icon="@drawable/mail"
             android:title="Feedback"
+            android:height="35dp"
+            android:width="35dp"
             />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Rate This App" />
+            android:icon="@drawable/star"
+            android:title="Rate This App"
+            android:height="35dp"
+            android:width="35dp"
+            />
 
 
     </group>

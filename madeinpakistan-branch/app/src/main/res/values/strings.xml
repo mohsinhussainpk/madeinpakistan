@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">All in one app</string>
+    <string name="app_name">Made In Pakistan</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,12 +9,19 @@
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="start">Start</string>
-    <string name="title_slide1">*Activty in 1 Destination</string>
+    <string name="title_slide1">Daily Use Item</string>
     <string name="desc_slide1">It will start help you </string>
-    <string name="title_slide2">Helps you to update</string>
+
+    <string name="title_slide2">Online Services</string>
     <string name="desc_slide2">It will  keep you updated aobut all stores and activity</string>
-    <string name="title_slide3">Alert on 100%</string>
+
+    <string name="title_slide3">News</string>
+
     <string name="desc_slide3">It will alert you when battery reaches 100%</string>
+
+    <string name="title_slide4">And Much More ...</string>
+
+
     <string name="title_activity_third_list_view">ThirdListViewActivity</string>
 
 

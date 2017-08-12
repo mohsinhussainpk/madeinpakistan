@@ -11,7 +11,7 @@
         <item name="windowNoTitle">true</item>
 
     </style>
-    <style name="AppTheme.GreenAccent">
+    <style name="AppTheme.GreenAccent"  parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="colorAccent">@color/colorPrimary</item> <!-- Whatever color you want-->
     </style>
 

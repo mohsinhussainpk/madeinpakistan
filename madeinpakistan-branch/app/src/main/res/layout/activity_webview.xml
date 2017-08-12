@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    tools:context="com.example.mohsinhussain.allinoneapp.Webview"
+    tools:context="com.e.mohsinhussain.madeinpakistan.Webview"
     >
 
     <WebView
@@ -23,10 +23,13 @@
 
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorPrimary"
+        android:layout_height="4dp"
         android:layout_gravity="top"
-        android:theme="@style/AppTheme.GreenAccent"
+        android:progressDrawable="@drawable/customprogress"
+
+
+
         />
     <ProgressBar
         android:layout_gravity="center"

@@ -49,6 +49,68 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319300667014:android:4af41fc20816e4d1",
+        "android_client_info": {
+          "package_name": "com.example.mohsinhussain.madeinpakistan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319300667014-td2jojrkse96iqo8b82ujafducsifq0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrO3C_e4J_m70imbeOaZ6B8YNU1W5PzkQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319300667014:android:9bcd0bb34b6c2c94",
+        "android_client_info": {
+          "package_name": "com.e.mohsinhussain.madeinpakistan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319300667014-td2jojrkse96iqo8b82ujafducsifq0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrO3C_e4J_m70imbeOaZ6B8YNU1W5PzkQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

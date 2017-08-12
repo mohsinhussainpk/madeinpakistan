@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.mohsinhussain.allinoneapp.ThirdListViewActivity"
+    tools:context="com.e.mohsinhussain.madeinpakistan.ThirdListViewActivity"
     tools:showIn="@layout/activity_third_list_view">
 
 </android.support.constraint.ConstraintLayout>
