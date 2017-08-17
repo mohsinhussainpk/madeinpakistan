@@ -93,6 +93,13 @@ public class SplashActivity extends Activity {
         Boolean conn = check.isNetworkAvailable(this.getApplicationContext());
         DAL layer=new DAL(this,this);
 
+
+//        if(timer!=0)
+//        {
+//
+//            StartAnimations();
+//
+//        }
         if(conn) {
             firebase = FirebaseDatabase.getInstance();
             //firebase.setPersistenceEnabled(true);
@@ -102,12 +109,7 @@ public class SplashActivity extends Activity {
 
             mStorageRef = FirebaseStorage.getInstance().getReference();
 
-if(timer!=0)
-{
 
-    StartAnimations();
-
-}
             layer.sliderDetail();
 
 

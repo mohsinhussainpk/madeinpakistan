@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ public class CheckConnetivity extends BroadcastReceiver {
     private boolean isConnected = false;
     ConnectivityManager connectivityManager;
     NetworkInfo wifiInfo, mobileInfo;
+    WifiManager wifiManager;
 
     @Override
     public void onReceive(final Context context, final Intent intent) {
@@ -33,9 +36,17 @@ public class CheckConnetivity extends BroadcastReceiver {
 
         try{
             connectivityManager = (ConnectivityManager) con.getSystemService(Context.CONNECTIVITY_SERVICE);
+            wifiManager = (WifiManager) con.getSystemService(Context.WIFI_SERVICE);
+             WifiInfo wifiInfo1 = wifiManager.getConnectionInfo();
             wifiInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
             mobileInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 
+
+            if (wifiInfo1 != null) {
+
+                Integer linkSpeed = wifiInfo1.getLinkSpeed(); //measured using WifiInfo.LINK_SPEED_UNITS
+            }
             if(wifiInfo.isConnected() || mobileInfo.isConnected())
             {
                 return true;

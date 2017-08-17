@@ -175,13 +175,21 @@ public class Webview extends AppCompatActivity {
 
         super.onBackPressed();
 
-        if (MainActivity.mInterstitialAd.isLoaded()) {
-            MainActivity.mInterstitialAd.show();
-        }
-        //Toast.makeText(this,"onBackPressed",Toast.LENGTH_SHORT).show();
+        try {
+            if (MainActivity.mInterstitialAd.isLoaded()) {
+                MainActivity.mInterstitialAd.show();
+            }
+            //Toast.makeText(this,"onBackPressed",Toast.LENGTH_SHORT).show();
 
-        finish();
-        overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+            finish();
+            overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+
+        }
+        catch (Throwable e)
+        {
+            e.printStackTrace();
+
+        }
 
     }
 

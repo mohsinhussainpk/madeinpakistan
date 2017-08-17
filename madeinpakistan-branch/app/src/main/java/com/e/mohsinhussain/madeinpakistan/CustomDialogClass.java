@@ -50,22 +50,28 @@ public static boolean mainactivityexit=false;
                 //SplashActivity.timer1=0;
                 //ExitActivity exitActivity=new ExitActivity();
 
-                if( ! (c instanceof MainActivity))
-                {
-                    mainactivityexit=true;
+                try {
+                    if (!(c instanceof MainActivity)) {
+                        mainactivityexit = true;
 
-                    Intent intent=new Intent(c,MainActivity.class);
+                        Intent intent = new Intent(c, MainActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                    c.setResult(123);
-                    c.startActivity(intent);
+                        c.startActivity(intent);
 
 
+                    } else {
+
+                        c.finish();
+
+                    }
                 }
-                else
-                {
 
-                    c.finish();
+
+                catch (Throwable e)
+                {
+                    e.printStackTrace();
 
                 }
 

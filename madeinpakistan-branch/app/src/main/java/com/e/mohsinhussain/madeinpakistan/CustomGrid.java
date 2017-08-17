@@ -71,9 +71,19 @@ class CustomGrid extends BaseAdapter {
                 holder = ( Holder) convertView.getTag();
             }
 
-            holder.os_text.setText(result[position]);
-            holder.os_img.setImageResource(imageId[position]);
+try
+{
 
+    holder.os_text.setText(result[position]);
+    holder.os_img.setImageResource(imageId[position]);
+
+}
+
+            catch (Throwable e)
+            {
+                e.printStackTrace();
+
+            }
 
 
             holder.os_img.setOnClickListener(new OnClickListener() {

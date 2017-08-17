@@ -136,19 +136,27 @@ public class StoresActivity extends AppCompatActivity {
    // @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void getOpenHomeIntent(Context context) {
 
-      Intent intent=new Intent(context,MainActivity.class);
+        try{
+            Intent intent=new Intent(context,MainActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+
+        }
 
 
+  catch (Throwable e)
+        {
+            e.printStackTrace();
 
+        }
     }
 
     public void getShareIntent(Context context) {
 
        //twitter.com/drkarthiik")); //catches and opens a url to the desired page
+
         try {
             Intent i = new Intent(Intent.ACTION_SEND);
             i.setType("text/plain");
@@ -212,8 +220,18 @@ public void onBackPressed() {
 //        super.onBackPressed();
 //        Intent intent= new Intent(this,MainActivity.class);
 //        startActivity(intent);
-    finish();
-    overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+   try{
+
+       finish();
+       overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+   }
+
+
+catch (Throwable e)
+    {
+        e.printStackTrace();
+
+    }
 }
 
 

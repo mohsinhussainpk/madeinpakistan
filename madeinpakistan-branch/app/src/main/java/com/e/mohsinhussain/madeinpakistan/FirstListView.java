@@ -140,12 +140,18 @@ public class FirstListView extends AppCompatActivity {
     }
     public void getOpenHomeIntent(Context context) {
 
-        Intent intent=new Intent(context,MainActivity.class);
+        try {
+            Intent intent = new Intent(context, MainActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_enter, R.anim.slide_exit);
+        }
+        catch (Throwable e)
+        {
+            e.printStackTrace();
 
+        }
 
 
     }
@@ -181,8 +187,18 @@ public class FirstListView extends AppCompatActivity {
 //        super.onBackPressed();
 //        Intent intent= new Intent(this,MainActivity.class);
 //        startActivity(intent);
-        finish();
-        overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+        try{
+
+            finish();
+            overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit);
+        }
+
+
+        catch (Throwable e)
+        {
+            e.printStackTrace();
+
+        }
     }
 
 }

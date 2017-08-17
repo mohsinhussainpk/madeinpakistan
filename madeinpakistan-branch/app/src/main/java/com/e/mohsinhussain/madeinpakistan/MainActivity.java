@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity
         AdRequest adRequest = new AdRequest.Builder() .build();
 
         mAdView.loadAd(adRequest);
+
         CustomGrid adapter = new CustomGrid(this, web, imageId);
         ExpandableHeightGridView grid=(ExpandableHeightGridView) findViewById(R.id.customgrid);
         grid.setAdapter(adapter);
